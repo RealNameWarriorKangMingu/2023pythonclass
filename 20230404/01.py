@@ -1,20 +1,36 @@
-# BJOON 11659
-print("합을 구할 데이터수와 질문 갯수 입력 : ")
+#데이타 선택 문제
 
-suNo, quizNo = map(int, input().split())
-numbers = list(map(int, input().split()))
-pSum = [0]
-temp = 0
+# 0에서 99까지의 random number를 20개 만든다
+from random import randrange
+#import random
+exlist=[]
+for k in range(20):
+    exlist.append(randrange(0,100))
+    
+# 오름차순으로 정렬한 후 k번째 수 선택
 
-for i in numbers:
-    temp = temp + i
-    pSum.append(temp)
+k = int(input("몇번째 데이터를 원하시나요?"))
+print(exlist)
+exlist.sort()
+print(exlist)
+print(k, 'th data = ', exlist[k-1])
 
-print(pSum)
+count = 1
+exlist2 = []
+while count < 20:
+    num = randrange(0, 51)
+    if num not in exlist2:
+        exlist2.append(num)
+        count += 1
+        
+print(exlist2)
 
-for i in range(quizNo):
-    s, e = map(int, input().split())
-    print(pSum[e]-pSum[s-1])
+# 최소값을 구하고 삭제하는 것을 k 번 한다
 
-
-# 구간합 (s, e) 쌍의 list로 해서 출력이 따로 되도록
+for d in range(k):
+    mvalue = min(exlist2)
+    di = exlist2.index(mvalue)
+    del(exlist2[di])
+    
+print(k, 'kth value', mvalue)
+print(exlist2)

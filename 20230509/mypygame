@@ -67,5 +67,10 @@ while running:
         
         keys = pygame.key.get_pressed()
 
-        icon_speed.x = 0.3 * (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT])
-        icon_speed.y = 0.3 * (keys[pygame.K_DOWN] - keys[pygame.K_UP])
+icon_speed.x = 0.3 * (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT])
+icon_speed.y = 0.3 * (keys[pygame.K_DOWN] - keys[pygame.K_UP])
+icon_position += icon_speed
+
+if obs.y > screen_height :
+    obs.x = random.randint(0, screen_width - obstacle_width)
+    obs.y = random.randint(-obstacle_width * 2, -obstacle_width)

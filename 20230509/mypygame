@@ -35,3 +35,10 @@ obstacles = []
 for _ in range(obstacle_count):
     obstacles.append(pygame.math.Vector2(random.randint(0, screen_width - obstacle_width),
                                          random.randint(-obstacle_height * 2, -obstacle_height)))
+    
+running = True
+while running
+screen_color = [R, G, B]
+screen.fill(screen_color)
+pygame.draw.rect(screen, Rect_color, Rect_type)
+pygame.display.flip()

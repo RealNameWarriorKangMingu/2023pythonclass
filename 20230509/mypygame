@@ -51,7 +51,7 @@ while running : # while문을 반복하면서 화면을 새로고침
     icon_position.x = max(min(icon_position.x, screen_width - icon_width), 0)
     icon_position.y = max(min(icon_position.y, screen_height - icon_height), 0)
     for obs in obstacles : # 모든 장애물 이동
-        obs.y += 0.5 # 수직으로만 이동 & 0.2 속도만큼 이동
+        obs.y += 0.6 # 수직으로만 이동 & 0.2 속도만큼 이동
         if obs.y > screen_height: # 모든 장애물 위치 검사
             obs.x = random.randint(0, screen_width - obstacle_width) # x값 재생성
             obs.y = random.randint(-obstacle_width * 2, -obstacle_width) # y값 재생성

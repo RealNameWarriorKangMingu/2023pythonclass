@@ -18,7 +18,7 @@ icon_width = 50
 icon_height = 50
 icon_color = (255, 255, 255)
 
-position = pygame.math.Vector2(x, y)
+position = pygame.math.Vector2(10, 10)
 position.x = 0
 position.y = 0
 
@@ -38,7 +38,7 @@ for _ in range(obstacle_count):
     
 running = True
 while running :
-    screen_color = [R, G, B]
+    #screen_color = [R, G, B]
     #screen.fill(screen_color)
     #pygame.draw.rect(screen, Rect_color, Rect_type)
     #pygame.display.flip()
@@ -65,12 +65,11 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         
-        keys = pygame.key.get_pressed()
+    keys = pygame.key.get_pressed()
+    icon_speed.x = 0.3 * (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT])
+    icon_speed.y = 0.3 * (keys[pygame.K_DOWN] - keys[pygame.K_UP])
+    icon_position += icon_speed
 
-icon_speed.x = 0.3 * (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT])
-icon_speed.y = 0.3 * (keys[pygame.K_DOWN] - keys[pygame.K_UP])
-icon_position += icon_speed
-
-if obs.y > screen_height :
-    obs.x = random.randint(0, screen_width - obstacle_width)
-    obs.y = random.randint(-obstacle_width * 2, -obstacle_width)
+    if obs.y > screen_height :
+        obs.x = random.randint(0, screen_width - obstacle_width)
+        obs.y = random.randint(-obstacle_width * 2, -obstacle_width)

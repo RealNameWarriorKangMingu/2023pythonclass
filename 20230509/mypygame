@@ -3,9 +3,9 @@ import random
 
 pygame.init()
 
-size = [x, y]
+size = [10, 10]
 pygame.display.set_mode(size)
-pygame.display.set.caption("title")
+pygame.display.set_caption("title")
 
 screen_width = 800
 screen_height = 500
@@ -37,8 +37,35 @@ for _ in range(obstacle_count):
                                          random.randint(-obstacle_height * 2, -obstacle_height)))
     
 running = True
-while running
-screen_color = [R, G, B]
-screen.fill(screen_color)
-pygame.draw.rect(screen, Rect_color, Rect_type)
+while running :
+    screen_color = [R, G, B]
+    #screen.fill(screen_color)
+    #pygame.draw.rect(screen, Rect_color, Rect_type)
+    #pygame.display.flip()
+
+    screen.fill((0, 0, 0))
+    pygame.draw.rect(screen, icon_color, pygame.Rect(icon_position.x, icon_position.y, icon_width, icon_height))
+    for obs in obstacles:
+        pygame.draw.rect(screen, obstacle_color,
+                         pygame.Rect(obs.x, obs.y, obstacle_width, obstacle_height))
 pygame.display.flip()
+
+#for event in pygame.event.get():
+    #if event.type == pygame.QUIT :
+        #pygame.quit()
+
+#keys[pygame.K_RIGHT] #keys [1073741903]
+#keys[pygame.K_LEFT] #keys[1073741904]
+#keys[pygame.K_DOWN] #keys[1073741905]
+#keys[pygame.K_UP] #keys[1073741906]
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        
+        keys = pygame.key.get_pressed()
+
+        icon_speed.x = 0.3 * (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT])
+        icon_speed.y = 0.3 * (keys[pygame.K_DOWN] - keys[pygame.K_UP])
